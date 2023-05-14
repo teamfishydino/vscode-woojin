@@ -1,2 +1,2 @@
 # vscode-woojin
-Extension for highlighting Woojin's grammar in vscode
+Extension for highlighting woojin grammar in vscode
