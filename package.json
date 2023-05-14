@@ -1,0 +1,40 @@
+{
+  "name": "woojin",
+  "displayName": "woojin",
+  "description": "woojin support for Visual Studio Code",
+  "version": "0.1.2",
+  "author": "minjeadev",
+  "publisher": "minjeadev",
+  "license": "MIT",
+  "readme": "README.md",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/teamfishydino/vscode-woojin"
+  },
+  "engines": {
+    "vscode": "^1.75.0"
+  },
+  "categories": [
+    "Programming Languages",
+    "Snippets"
+  ],
+  "contributes": {
+    "languages": [{
+      "id": "woojin",
+      "extensions": [".wj", ".woojin"],
+      "configuration": "./language-configuration.json"
+    }],
+    "grammars": [{
+      "language": "woojin",
+      "scopeName": "source.wj",
+      "path": "./syntaxes/woojin.tmLanguage.json",
+      "extensions": [".wj", ".woojin"]
+    }],
+    "snippets": [{
+      "language": "woojin",
+      "scopeName": "source.wj",
+      "path": "./snippets/snippets.json",
+      "extensions": [".wj", ".woojin"]
+    }]
+  }
+}

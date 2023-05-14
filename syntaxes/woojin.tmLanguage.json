@@ -1,0 +1,58 @@
+{
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"name": "woojin",
+	"scopeName": "source.wj",
+	"fileTypes": ["wj"],
+  "patterns": [
+    { "include": "#comments" },
+    { "include": "#strings" },
+    { "include": "#numbers" },
+    { "include": "#keywords" },
+    { "include": "#functions" },
+    { "include": "#operator" },
+    { "include": "#indentation" },
+    { "begin": "if(?=\\s+.+:)", "end": "$", "name": "keyword.control.conditional.wj", "patterns": [{"match": "(?<=:\\s*)(.*)", "name":"source.wj"}]},
+    { "begin": "else(?=\\s*:)", "end": "$", "name": "keyword.control.conditional.wj", "patterns": [{"match": "(?<=:\\s*)(.*)", "name":"source.wj"}]},
+    { "match": "\\b(int|float|bool|long|double|unit|any|array|string)\\b", "name": "meta.type.name.wj" },
+    { "begin": ":\\s*", "end": "\\b", "name": "meta.type.annotation", "patterns": [ {"match": "\\b(int|float|bool|long|double|unit|any|array|string)\\b", "name": "meta.type.name.wj"}] },
+    { "match": "(?m)^ {2,}", "name": "meta.whitespace.indent.wj"},
+    { "match": "\\$[A-Za-z_][A-Za-z0-9_]*\\b", "name": "variable.name.wj" },
+    { "match": "\\=", "name": "keyword.operator.assignment.wj" },
+    { "match": "\\blet\\s+((mut\\s+)?[a-zA-Z_][a-zA-Z0-9_]*)(\\s*:\\s*[a-zA-Z]+)?\\b", "name": "variable.declaration.wj" },
+    { "match": "\\bfunction\\b\\s+\\w+\\s*\\((\\s*\\w+\\s*,?\\s*)*\\)", "captures": { "0": { "name": "meta.function.parameters.wj" }, "1": { "name": "variable.parameter.wj" } } },
+    { "match": "\\b(print|println|input|sleep)\\b", "name": "support.function.wj" },
+    { "match": "\\b(int|float|bool|long|double|unit|any|array|string)\\b", "name": "support.type.wj" },
+    { "match": "\\b(uglyguri|beautifulguri)\\b", "name": "constant.language.wj" },
+    { "match": "'.'", "name": "constant.language.wj" }
+  ],
+  "repository": {
+    "indentation": {
+      "patterns": [ { "match": "^\\s{2,}", "name": "text.whitespace.indentation.wj" }]
+    },
+    "comments": {
+      "patterns": [ { "match": "//.*$", "name": "comment.line.wj" } ]
+    },
+    "strings": {
+      "patterns": [ { "begin": "\"", "end": "\"", "name": "string.quoted.double.wj" } ]
+    },
+    "keywords": {
+      "patterns": [ { "match": "\\b(if|else|let|mut|yee|roar)\\b", "name": "keyword.control.wj" } ]
+    },
+    "numbers": {
+      "patterns": [
+        { "match": "\\b(\\d+\\.\\d*|\\.\\d+)\\b", "name": "constant.numeric.wj" },
+        { "match": "\\b(\\d+)\\b", "name": "constant.numeric.wj" }
+      ]
+    },
+    "functions": {
+      "patterns": [
+        { "match": "\\b[a-zA-Z_]+(?=\\()", "name": "entity.name.function.wj" }
+      ]
+    },
+    "operator": {
+      "patterns": [
+        { "match": "\\+|\\*|\\/|-", "name":"keyword.operator.wj" }
+      ]
+    }
+  }
+}

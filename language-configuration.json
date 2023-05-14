@@ -1,0 +1,41 @@
+{
+  "comments": {
+    "lineComment": "//"
+  },
+  "brackets": [
+    ["{", "}"],
+    ["[", "]"],
+    ["(", ")"]
+  ],
+  "autoClosingPairs": [
+    ["{", "}"],
+    ["[", "]"],
+    ["(", ")"],
+    ["\"", "\""],
+    ["'", "'"],
+    { "open": "\"", "close": "\"", "notIn": ["string"] }
+  ],
+  "surroundingPairs": [
+		["{", "}"],
+		["[", "]"],
+		["(", ")"],
+		["\"", "\""],
+		["<", ">"]
+	],
+  "indentationRules": {
+		"increaseIndentPattern": "^.*\\{[^}\"']*$|^.*\\([^\\)\"']*$",
+		"decreaseIndentPattern": "^\\s{2,}.*"
+	},
+	"folding": {
+		"markers": {
+			"start": "^\\s*//\\s*#?region\\b",
+			"end": "^\\s*//\\s*#?endregion\\b"
+		}
+	},
+	"onEnterRules": [
+		{
+			"beforeText": "^\\s*(?:fn|for|while|loop|if|else).*?:\\s*$",
+			"action": { "indent": "indent" }
+		}
+	]
+}
